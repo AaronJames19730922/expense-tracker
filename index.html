@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#6366f1">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icons/icon-512.png">
   <title>記帳本 Expense Tracker</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,11 +44,6 @@
       </div>
     </div>
 
-    <h3>歷史記錄</h3>
-    <ul id="list" class="list">
-      <!-- JavaScript 會動態插入 li -->
-    </ul>
-
     <h3>新增交易</h3>
     <form id="form">
       <div class="form-control">
@@ -61,8 +59,20 @@
       </div>
       <button class="btn">新增記錄</button>
     </form>
+
+    <h3>歷史記錄</h3>
+    <ul id="list" class="list">
+      <!-- JavaScript 會動態插入 li -->
+    </ul>
   </div>
 
   <script src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js');
+      });
+    }
+  </script>
 </body>
 </html>
