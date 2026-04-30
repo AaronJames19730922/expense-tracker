@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>記帳本 Expense Tracker</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="background-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+  </div>
+
+  <div class="container glass-panel">
+    <div class="header-box">
+      <h2>我的記帳本</h2>
+      <div class="storage-btns">
+        <button id="export-btn" title="備份資料到檔案">📥 備份</button>
+        <button id="import-btn" title="從檔案還原資料">📤 還原</button>
+        <input type="file" id="file-input" style="display: none;" accept=".json">
+      </div>
+    </div>
+
+    <div class="balance-container">
+      <h4>目前餘額</h4>
+      <h1 id="balance">$0</h1>
+    </div>
+
+    <div class="inc-exp-container">
+      <div>
+        <h4>收入</h4>
+        <p id="money-plus" class="money plus">+$0</p>
+      </div>
+      <div>
+        <h4>支出</h4>
+        <p id="money-minus" class="money minus">-$0</p>
+      </div>
+    </div>
+
+    <h3>歷史記錄</h3>
+    <ul id="list" class="list">
+      <!-- JavaScript 會動態插入 li -->
+    </ul>
+
+    <h3>新增交易</h3>
+    <form id="form">
+      <div class="form-control">
+        <label for="text">名稱</label>
+        <input type="text" id="text" placeholder="輸入名稱 (例如：午餐、薪水)" required autocomplete="off" />
+      </div>
+      <div class="form-control">
+        <label for="amount"
+          >金額 <br />
+          <span style="font-size: 12px;">(負數：支出，正數：收入)</span></label
+        >
+        <input type="number" id="amount" placeholder="輸入金額..." required />
+      </div>
+      <button class="btn">新增記錄</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
