@@ -123,11 +123,11 @@ function editTransaction(id) {
 
 // Remove transaction by ID
 function removeTransaction(id) {
-  transactions = transactions.filter(transaction => transaction.id !== id);
-
-  updateLocalStorage();
-
-  init();
+  if (confirm('確定要刪除這筆紀錄嗎？')) {
+    transactions = transactions.filter(transaction => transaction.id !== id);
+    updateLocalStorage();
+    init();
+  }
 }
 
 // Update local storage transactions
