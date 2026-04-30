@@ -93,18 +93,22 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 25px;
+  flex-wrap: nowrap; /* Prevent title and buttons from stacking */
+  gap: 10px;
 }
 
 h2 {
   margin: 0;
   font-weight: 800;
   letter-spacing: 1px;
-  font-size: 20px;
+  font-size: 18px; /* Slightly smaller to fit header on one line */
+  white-space: nowrap;
 }
 
 .storage-btns {
   display: flex;
-  gap: 8px;
+  gap: 6px;
+  flex-shrink: 0;
 }
 
 .storage-btns button {
@@ -150,23 +154,27 @@ h4 {
 }
 
 h1 {
-  font-size: clamp(2rem, 10vw, 2.6rem); /* Responsive font size for large numbers */
+  font-size: clamp(1.8rem, 12vw, 2.6rem); /* Improved scaling */
   margin: 5px 0;
   font-weight: 800;
   background: linear-gradient(to right, #fff, #cbd5e1);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  word-break: break-all; /* Allow breaking long numbers */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; /* Prevent numbers from turning into vertical lines */
 }
 
 .inc-exp-container {
   background: rgba(0, 0, 0, 0.2);
   border-radius: 16px;
-  padding: 20px;
+  padding: 15px 10px;
   display: flex;
+  flex-direction: row; /* Ensure horizontal */
   justify-content: space-between;
   margin: 20px 0;
   border: 1px solid var(--glass-border);
+  gap: 5px;
 }
 
 .inc-exp-container > div {
@@ -179,11 +187,13 @@ h1 {
 }
 
 .money {
-  font-size: clamp(1.2rem, 5vw, 1.5rem); /* Smaller responsive font for income/expense */
+  font-size: clamp(1rem, 4.5vw, 1.4rem); /* Slightly smaller to fit horizontal */
   font-weight: 600;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   margin-top: 5px;
-  word-break: break-all;
+  white-space: nowrap; /* Prevent vertical breaking */
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .money.plus {
@@ -225,7 +235,7 @@ h1 {
   justify-content: space-between;
   align-items: center;
   position: relative;
-  padding: 12px 15px; /* Slightly reduced padding */
+  padding: 12px 15px;
   margin: 10px 0;
   border-radius: 12px;
   border-left: 5px solid transparent;
@@ -233,7 +243,7 @@ h1 {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   border-right: 1px solid rgba(255, 255, 255, 0.05);
   overflow: hidden;
-  gap: 10px; /* Ensure space between text and amount */
+  gap: 15px;
 }
 
 .list li:hover {
@@ -251,7 +261,18 @@ h1 {
 
 .list li span {
   font-weight: 600;
-  word-break: break-all; /* Prevent long names from pushing everything out */
+}
+
+.content-box {
+  flex: 1;
+  min-width: 0; /* Important for ellipsis */
+}
+
+.text-content {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .date {
@@ -266,6 +287,8 @@ h1 {
   display: flex;
   align-items: center;
   gap: 10px;
+  flex-shrink: 0; /* Prevent numbers from shrinking/breaking */
+  white-space: nowrap;
 }
 
 .action-btns {
